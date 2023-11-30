@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.growgreen.todo.TodoMapper">
+
+    <insert id="insTodo" useGeneratedKeys="true" keyProperty="itodo">
+        INSERT INTO t_todo
+        ( iuser, iplant, contents, deadline_day, deadline_time )
+        SELECT iuser, iplant, #{contents}, #{deadlineDay}, #{deadlineTime}
+        FROM t_plant
+        WHERE iuser = #{iuser}
+        AND iplant = #{iplant}
+    </insert>
+
+</mapper>

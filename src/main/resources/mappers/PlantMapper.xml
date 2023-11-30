@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.growgreen.plant.PlantMapper">
+
+    <insert id="insPlant" useGeneratedKeys="true" keyProperty="iplant">
+        INSERT INTO t_plant
+        SET iuser = #{iuser}
+        , nicknm = #{nicknm}
+        , pic = #{pic}
+        , comment = #{comment}
+    </insert>
+
+    <select id="selPlantAll">
+        SELECT iplant, nicknm, pic, comment, created_at AS createdAt
+        FROM t_plant
+        WHERE iuser = #{iuser}
+    </select>
+
+</mapper>
